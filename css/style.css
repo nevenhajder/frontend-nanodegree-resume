@@ -22,6 +22,8 @@ h6 {
 .work-entry,
 .project-entry {
   padding: 0 5%;
+  overflow: hidden;
+  display: block;
 }
 
 h1 {
@@ -57,10 +59,16 @@ h2,
 h3,
 h4,
 h5 {
-  padding:10px 5%;
+  padding:10px 5% 0;
 
 }
 
+.role {
+  color: white;
+  font-size: 20px;
+  font-weight: normal;
+  margin-left: 10px;
+}
 
 .date-text {
   font-style: italic;
@@ -160,12 +168,32 @@ img {
   padding: 10px;
 }
 
-span {
-  padding: 5px;
-}
-
 #lets-connect {
   text-align: center;
+}
+
+#footerContacts li {
+  text-align: center;
+  display: inline-block;
+}
+
+.icon {
+  padding: 5px;
+  margin: 0 15px;
+  font-size: 24px;
+}
+
+.envelope {
+  width: 50px;
+}
+
+.github {
+  width: 100px;
+}
+
+.location {
+  width: 30px;
+  margin-right: 10px;
 }
 
 /* Media queries to handle various device widths */
@@ -191,6 +219,10 @@ span {
   }
   .welcome-message {
     display: none;
+  }
+
+  #footerContacts li {
+    display: block;
   }
 }
 
