@@ -1,0 +1,165 @@
+
+// Navigation Module Styles
+
+// Navigation Toggle
+// Idea from Jesse Couch: http://codepen.io/designcouch/pen/Atyop
+
+.nav--toggle {
+	z-index: 5;
+  position: fixed;
+	width: em(45px);
+  height: em(45px);
+
+	top: em(5px);
+	right: em(-2px);
+
+  outline: none;
+	border: 2px solid $lochmara;
+	border-top-left-radius: em(5px);
+	border-bottom-left-radius: em(5px);
+	border-right: none;
+	background: $page__background;
+
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  transition: .3s ease-in-out;
+}
+
+.nav--toggle span {
+	display: block;
+  position: absolute;
+  height: em(5px);
+  width: em(30px);
+  background: $lochmara;
+  border-radius: em(5px);
+  opacity: 1;
+  left: em(6px);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.nav--toggle span:nth-child(1) {
+  top: em(7px);
+}
+
+.nav--toggle span:nth-child(2),.nav--toggle span:nth-child(3) {
+  top: em(18px);
+}
+
+.nav--toggle span:nth-child(4) {
+  top: em(29px);
+}
+
+.nav--toggle.open span:nth-child(1) {
+  top: em(18px);
+  width: 0%;
+  left: 50%;
+}
+
+.nav--toggle.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.nav--toggle.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.nav--toggle.open span:nth-child(4) {
+  top: em(18px);
+  width: 0%;
+  left: 50%;
+}
+
+
+// Navigation List Styles
+
+.nav--list {
+	z-index: 4;
+	position: fixed;
+	top: em(5px);
+	right: em(-250px);
+	list-style-type: none;
+
+	margin:0;
+	padding: 0;
+	width: em(250px);
+	height: calc(100vh - 10px);
+	border: 2px solid $lochmara;
+	border-radius: em(10px);
+	border-top-left-radius: 0;
+	background: $page__background;
+	transition: right .3s ease-in-out;
+	overflow-y: auto;
+}
+
+.nav--list--item {
+	display: block;
+	text-align: center;
+	font-size: em(18px);
+	line-height: em(48px, 18px);
+}
+
+.nav--list--item > a {
+	color: $base__color;
+	display: block;
+	margin: auto;
+	width: 60%;
+}
+
+.nav--list--item.active > a,
+.nav--list--item > a:hover {
+	color: $lochmara;
+	text-decoration: none;
+}
+
+
+// Navigation List Divider
+
+.nav--list--item:not(:last-child)::after {
+	width: 60%;
+	height: 2px;
+	content: "";
+	margin: auto;
+	display: block;
+	position: relative;
+	background: linear-gradient(to right, rgba(0,0,0,0), $lochmara, rgba(0,0,0,0));
+}
+
+
+// Media Queries
+
+@media (min-width: 768px) {
+
+	nav {
+		text-align: center;
+		margin-bottom: em(15px);
+	}
+
+	.nav--toggle,
+	.nav--list--item:not(:last-child)::after {
+		display: none;
+	}
+
+	.nav--list {
+		height: auto;
+		border: none;
+		display: block;
+		position: static;
+		min-height: initial;
+		width: 100%;
+	}
+
+	.nav--list--item {
+		display: inline-block;
+		text-align: center;
+		line-height: em(48px, 18px);
+	}
+
+	.nav--list--item > a {
+		width: em(100px);
+	}
+
+}

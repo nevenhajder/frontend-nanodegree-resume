@@ -2,7 +2,8 @@
 <head>
     <meta charset="utf-8">
     <title>Resume</title>
-    <link href="css/style.css" rel="stylesheet">
+    <!-- Custom CSS Styles -->
+    <link href="css/app.min.css" rel="stylesheet">
     <!--  jQuery -->
     <script src="js/jQuery.js"></script>
     <!-- Variables and functions that will be used to build the resume  -->
@@ -12,54 +13,128 @@
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-    <div id="main">
-        <div id="header" class="center-content clear-fix"></div>
-        <div style="clear: both;"></div>
-        <div id="workExperience" class="gray">
-            <h2>Work Experience</h2>
-        </div>
-        <div id="projects">
-            <h2>Projects</h2>
-        </div>
-        <div id="education" class="gray">
-            <h2>Education</h2>
-        </div>
-        <div id="mapDiv">
-            <h2>Where I've Lived and Worked</h2>
-        </div>
-        <div id="lets-connect" class="dark-gray">
-            <h2 class="orange center-text">Let's Connect</h2>
-            <ul id="footerContacts">
-            </ul>
-        </div>
-    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-lg-10 col-lg-offset-1">
+
+                <!-- Header -->
+                <div class="row">
+                    <header>
+                        <img class="header--logo" src="images/logo-min.png" alt="Neven's Logo">
+
+                        <h1 class="header--name">
+                            Neven Hajder
+                            <small>(Aspiring) Web Developer</small>
+                        </h1>
+
+                        <hr>
+                    </header>
+                </div>
+                <!-- /Header -->
+
+                <!-- Navigation -->
+                <div class="row">
+                    <nav>
+                        <!-- Navigation Menu Toggle -->
+                        <button class="nav--toggle" type="button">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+
+                        <ul class="nav--list">
+                            <li class="nav--list--item"><a href="#">Home</a></li>
+                            <li class="nav--list--item"><a href="#">Portfolio</a></li>
+                            <li class="nav--list--item active"><a href="#">Resume</a></li>
+                            <li class="nav--list--item"><a href="#">About Me</a></li>
+                            <li class="nav--list--item"><a href="#">Contact</a></li>
+                        </ul>
+                        <hr>
+                    </nav>
+                </div>
+                <!-- /Navigation -->
+
+                <main>
+
+                    <!-- Bio pic and skills -->
+                    <div class="row center">
+                        <section id="bio">
+                            <div id="bioPic"></div>
+                            <div id="skills"></div>
+                        </section>
+                    </div>
+                    <!-- /Bio pic and skills -->
+                    <hr>
+                    <!-- Work Experience -->
+                    <div class="row">
+                        <section id="workExperience">
+                            <h2 class="section-heading">Work Experience</h2>
+                        </section>
+                    </div>
+                    <!-- /Work Experience -->
+                    <hr>
+                    <!-- Projects -->
+                    <div class="row">
+                        <section id="projects">
+                            <h2 class="section-heading">Projects</h2>
+                        </section>
+                    </div>
+                    <!-- /Projects -->
+                    <hr>
+                    <!-- Education -->
+                    <div class="row">
+                        <section id="education">
+                            <h2 class="section-heading">Education</h2>
+                        </section>
+                    </div>
+                    <!-- /Education -->
+                    <hr>
+                    <!-- Google Map -->
+                    <div class="row">
+                        <!-- Map commented out to save bandwidth -->
+                        <section id="locations">
+                            <div id="mapDiv">
+                                <h2 class="section-heading">Where I've Lived and Worked</h2>
+                            </div>
+                        </section>
+                    </div>
+                    <!-- /Google Map -->
+                    <hr>
+                </main>
+
+                <!-- Contact -->
+                <div class="row">
+                    <footer>
+                        <h2>Let's Connect</h2>
+                        <ul class="footer-contacts">
+                            <li>
+                                <a href="mailto:neven.hajder@gmail.com"><i class="fa fa-envelope-o fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/nevenhajder"><i class="fa fa-github fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="skype:neven.hajder?userinfo"><i class="fa fa-skype fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/neven_hajder"><i class="fa fa-twitter fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/neven.hajder"><i class="fa fa-facebook fa-2x"></i></a>
+                            </li>
+                        </ul>
+                    </footer>
+                </div>
+                <!-- /Contact -->
+
+            </div> <!-- /.col-sm-12 col-lg-10 col-lg-offset-1 -->
+        </div> <!-- /.row -->
+    </div> <!-- /.container-fluid -->
 
     <!-- Builds the resume -->
     <script src="js/resumeBuilder.js"></script>
-
-    <!-- Hides sections of the page in case that they are empty -->
-    <script type="text/javascript">
-        if(document.getElementsByClassName('flex-item').length === 0) {
-            document.getElementById('topContacts').style.backgroundColor = 'black';
-        }
-        if(document.getElementsByTagName('h1').length === 0) {
-            document.getElementById('header').style.backgroundColor = 'black';
-        }
-        if(document.getElementsByClassName('work-entry').length === 0) {
-            document.getElementById('workExperience').style.backgroundColor = 'black';
-        }
-        if(document.getElementsByClassName('project-entry').length === 0) {
-            document.getElementById('projects').style.backgroundColor = 'black';
-        }
-        if(document.getElementsByClassName('education-entry').length === 0) {
-            document.getElementById('education').style.backgroundColor = 'black';
-        }
-        if(document.getElementsByClassName('flex-item').length === 0) {
-            document.getElementById('lets-connect').style.backgroundColor = 'black';
-        }
-        if(document.getElementById('map') === null) {
-            document.getElementById('mapDiv').style.backgroundColor = 'black';
-        }
-    </script>
+    <!-- Custom JavaScript -->
+    <script src="js/app.js"></script>
 </body>
 </html>

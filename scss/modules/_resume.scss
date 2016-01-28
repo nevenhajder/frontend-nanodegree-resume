@@ -1,0 +1,115 @@
+/* Styles for the Resume page of the portfolio */
+
+/* Skills */
+
+#skills {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: em(50px);
+}
+
+.skills--heading {
+	margin: 0;
+}
+
+.skills--list {
+	padding: 0;
+	font-size: em(18px);
+	list-style-type: none;
+	margin: em(10px) em(18px) 0;
+}
+
+.skills--list-item {
+	color: #fff;
+	margin: em(15px);
+	padding: 10px 20px;
+	min-width: 327px;
+	border-radius: 5px;
+	background-color: $lochmara;
+
+	position: relative;
+}
+
+/* This neat ribbon idea comes from AtiqUrRehman at BootSnip:
+		http://bootsnipp.com/snippets/featured/ribbon-buttons
+*/
+.skills--list-item::before {
+	@extend .ribbon;
+	left: -27px;
+	border-left-color: transparent;
+}
+
+.skills--list-item::after {
+	@extend .ribbon;
+	right: -27px;
+	border-right-color: transparent;
+}
+
+
+/* Entries for work, projects, and education */
+.work-entry {
+	@extend .entry;
+}
+
+.project-entry {
+	@extend .entry;
+	display: inline-block;
+	text-align: center;
+}
+
+.project-entry img {
+	width: em(250px);
+	display: inline-block;
+}
+
+.education-entry {
+	@extend .entry;
+}
+
+.dates {
+	@extend .entry--small;
+  float: left;
+}
+
+.locations {
+  @extend .entry--small;
+  float: right;
+}
+
+
+/* Map Styles */
+#mapDiv {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 5%;
+}
+
+#map {
+  display: block;
+  height: 90%;
+  margin: 0;
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+	#skills {
+		margin: em(15px) 0 0;
+	}
+
+	.skills--list {
+		margin: 0 5px;
+	}
+
+	.skills--list-item::before {
+		left: -24px;
+	}
+
+	.skills--list-item::after {
+		right: -24px;
+	}
+
+	.section-heading {
+		text-align: center;
+	}
+}

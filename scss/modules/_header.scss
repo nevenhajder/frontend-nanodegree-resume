@@ -1,0 +1,43 @@
+
+// Header module styles
+
+header {
+	z-index: 4;
+	width: 100%;
+	position: fixed;
+	padding: em(10px) 0 0 0;
+	background: $page__background;
+}
+
+.header--logo {
+	float: left;
+	width: em(60px);
+	margin: 0 em(5px) em(10px) em(5px);
+}
+
+.header--name {
+	margin: 0;
+	float: left;
+
+	line-height: 1;
+	font-size: em(36px);
+}
+
+.header--name small {
+	opacity: 0.6;
+	display: block;
+	line-height: 1.5;
+	letter-spacing: 0;
+	font-size: $base__font-size;
+	font-family: $base__font-family;
+}
+
+/**************
+ Media Queries
+**************/
+
+@media (min-width: 768px) {
+	header {
+		position: static;
+	}
+}

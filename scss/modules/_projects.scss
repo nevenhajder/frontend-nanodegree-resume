@@ -1,0 +1,31 @@
+
+// Projects module styles
+
+.projects--heading {
+	text-align: center;
+	font-size: em(24px);
+	text-decoration: underline;
+	margin: em(30px) 0 em(15px);
+}
+
+.project--container {
+	margin-bottom: em(30px);
+}
+
+.project--title {
+	margin: 0 0 em(5px);
+	text-align: center;
+	font-size: em(18px);
+}
+
+.project--caption {
+	margin: auto;
+	display: block;
+	text-align: left;
+	max-width: em(500px);
+	padding: 0 5% 0;
+
+	cite {
+		display: inline-block;
+	}
+}

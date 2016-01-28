@@ -7,16 +7,20 @@ var bio = {
     "contacts": {
         "email": "neven.hajder@gmail.com",
         "githubURL": "https://github.com/nevenhajder",
+        "skype": "",
+        "facebook": "",
+        "twitter": "",
+        "linkedin": "",
         "location": "Kitchener, Ontario"
     },
     "bioPicURL": "http://www.washingtoncitypaper.com/blogs/youngandhungry/files/2008/11/benjamin-franklin.jpg",
     "welcomeMessage": "Welcome to my humble website.",
     "skills": [
-        "Skill1",
-        "Skill2",
-        "Skill3",
-        "Skill4",
-        "Skill5"
+        "Excellent time management skills",
+        "Great speaker, writer, and listener",
+        "Poise under pressure",
+        "Hawkish eye for details",
+        "Tireless focus"
     ],
     /* Display all of the bio info */
     display: function() {
@@ -24,11 +28,6 @@ var bio = {
         var formattedName = HTMLheaderName.replace('%data%', bio.name);
         var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
         var formattedBioPic = HTMLbioPic.replace('%data%', bio.bioPicURL);
-        var formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
-
-        var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
-        var formattedGithub = HTMLgithub.replace('%data%', bio.contacts.githubURL);
-        var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
 
         function formatSkills() {
             /* Get skills from the bio object */
@@ -54,25 +53,16 @@ var bio = {
 
         /* Attach Bio info to the HTML (order of appending/prepending is important) */
         /* Header */
-        $('#header').append(formattedBioPic);
-        $('#header').append(formattedWelcome);
+        $("#bioPic").append(formattedBioPic);
 
         /* If there is more than one skill then create variables and attach them to HTML */
         if (formattedSkills.length > 0) {
-            $('#header').append(HTMLskillsStart);
+            $('#skills').append(HTMLskillsStart);
 
             formattedSkills.forEach(function(entry){
-                $('#skills').append(entry);
+                $('.skills--list').append(entry);
             });
         }
-
-        $('#header').prepend(formattedName);
-        $('#name').append(formattedRole);
-
-        /* Contact */
-        $('#footerContacts').append(formattedEmail);
-        $('#footerContacts').append(formattedGithub);
-        $('#footerContacts').append(formattedLocation);
     }
 };
 
@@ -83,21 +73,21 @@ var work = {
             "employer": "Mom",
             "dates": "January 2016 - present",
             "location": "Kitchener",
-            "description": ""
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor inventore reprehenderit ratione harum omnis id ut sunt laboriosam? Minima nostrum mollitia alias quo sed obcaecati pariatur, autem inventore quas! Nihil!"
         },
         {
             "title": "English Teacher",
             "employer": "Seosanyecheon Elementary School",
             "dates": "January 2014 - January 2016",
             "location": "Seosan, South Korea",
-            "description": ""
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error voluptate iste quo quibusdam a ratione beatae doloremque earum temporibus, debitis perspiciatis quasi quod, dicta blanditiis facilis. Eius dolorem excepturi, sequi illo, eos impedit a magni, voluptate at non quibusdam aliquid."
         },
         {
             "title": "English Teacher",
             "employer": "ELA Language Academy",
             "dates": "October 2012 - October 2013",
-            "location": "Daegu",
-            "description": ""
+            "location": "Daegu, South Korea",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit quam, adipisci dolor earum minus! Quia, sed, eaque. Deserunt odit temporibus, qui, expedita delectus molestias quis."
         }
     ],
     display: function() {
@@ -108,6 +98,7 @@ var work = {
             var title = HTMLworkTitle.replace('%data%', work.jobs[index].title);
             var date = HTMLworkDates.replace('%data%', work.jobs[index].dates);
             var location = HTMLworkLocation.replace('%data%', work.jobs[index].location);
+            var description = HTMLworkDescription.replace("%data%", work.jobs[index].description);
 
             /* Create new .work-entry */
             $('#workExperience').append(HTMLworkStart);
@@ -115,6 +106,8 @@ var work = {
             $('.work-entry:last').append(employer + title);
             $('.work-entry:last').append(date);
             $('.work-entry:last').append(location);
+            $(".work-entry:last").append(description);
+
         });
     }
 };
@@ -123,22 +116,28 @@ var projects = {
     "projects": [
     {
         "title": "Abacus",
-        "description": "",
-        "img": "",
+        "description": "Exactly what it says: an abacus, which I made as a way to practise CSS and JavaScript. Admitedly, it's fairly simple, but a fun, little project nonetheless.",
+        "img": "images/abacus.jpg",
         "tags": ["HTML", "CSS", "JavaScript"]
     },
     {
         "title": "Library",
-        "description": "",
-        "img": "",
+        "description": "Here you'll find a collection of books I consider important to me for various reasons. I also wrote a summary covering the most interesting ideas so that I could reflect on them later, and to give others a chance to learn a little more about me.",
+        "img": "images/bookshelf.jpg",
         "tags": ["HTML", "CSS", "JavaScript"]
     },
     {
-        "title": "Game",
-        "description": "",
-        "img": "",
-        "tags": ["HTML", "CSS", "jQuery"]
+        "title": "Heroes",
+        "description": "These are some of the people that are my role models. But calling them heroes is more fitting because it captures more of their grandeur. Everyone will easily recognize them and what they stand for, but I've written a blurb specificaly about why <em>I</em> admire them.",
+        "img": "images/hero.jpg",
+        "tags": ["HTML", "CSS", "JavaScript"]
     }
+    // {
+    //     "title": "Game",
+    //     "description": "Still to come.",
+    //     "img": "",
+    //     "tags": ["HTML", "CSS", "jQuery"]
+    // }
     ],
     display: function() {
         /* Fix for function invocation context problems with "this" */
@@ -153,8 +152,8 @@ var projects = {
             $("#projects").append(HTMLprojectStart);
             /* Append project information to .project-entry */
             $(".project-entry:last").append(title);
-            $(".project-entry:last").append(description);
             $(".project-entry:last").append(img);
+            $("figcaption:last").append(description);
         });
     }
 };

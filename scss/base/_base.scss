@@ -1,0 +1,59 @@
+
+// Base site styles
+
+body {
+	color: $base__color;
+	font-size: $base__font-size;
+	line-height: $base__line-height;
+	font-family: $base__font-family;
+	background: $page__background;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	letter-spacing: 1px;
+	font-family: $heading__font-family;
+}
+
+img {
+	margin: auto;
+	display: block;
+	max-width: 100%;
+}
+
+hr {
+	@extend .gradient-line;
+}
+
+cite {
+	color: lightgray;
+	font-size: em(12px);
+}
+
+cite a {
+	color: inherit;
+}
+
+section, footer {
+	@extend .clear-fix;
+	padding: em(20px) 0;
+	overflow: hidden;
+}
+
+main {
+	margin: em(8px);
+}
+.container-fluid {
+	margin-bottom: em(50px);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+	main {
+		margin: em(90px) em(8px) 0;
+	}
+}
