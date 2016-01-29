@@ -7,9 +7,10 @@ var HTMLheaderRole = '<span class="role">%data%</span>';
 
 var HTMLcontactGeneric = '<li>%contact%%data%</li>';
 var HTMLmobile = '<li>mobile%data%</li>';
-var HTMLemail = '<li><a href="mailto:neven.hajder@gmail.com"><a></li>';
-var HTMLtwitter = '<li>twitter%data%</li>';
-var HTMLgithub = '<li><a href="https://github.com/nevenhajder"></a></li>';
+var HTMLemail = '<li><a href="mailto:%data%"><i class="fa fa-envelope-o fa-2x"></i></a></li>';
+var HTMLtwitter = '<li><a href="%data%"><i class="fa fa-twitter fa-2x"></i></a></li>';
+var HTMLgithub = '<li><a href="%data"><i class="fa fa-github fa-2x"></i></a></li>';
+var HTMLskype = '<li><a href="skype:%data%?userinfo"><i class="fa fa-skype fa-2x"></i></a></li>';
 var HTMLblog = '<li>blog%data%</li>';
 var HTMLlocation = '<li></li>';
 
